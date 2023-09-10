@@ -20,10 +20,17 @@ Em termos do sistema, o servidor central encontra-se ligado aos computadores loc
 
 O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e contratos; e outro para a construção dinâmica das páginas web.
 
+## Histórias de Usuário
+- Eu, como **usuário do sistema**, gostaria de criar uma conta e logar no sistema para proteger meus dados pessoais.
+- Eu, como **usuário do sistema**, gostaria de elaborar e enviar pedidos de aluguel, permitindo-me alugar um veículo.
+- Eu, como **usuário do sistema**, gostaria de editar meus pedidos já enviados para corrigir ou alterar informações conforme necessário.
+- Eu, como **usuário do sistema**, gostaria de cancelar pedidos já enviados caso eu desista de realizá-lo.
+- Eu, como **agente do sistema**, gostaria de visualizar novos pedidos de aluguel recebidos para que eu possa avaliá-los.
+- Eu, como **agente do sistema**, gostaria de aprovar ou recusar, conforme meu julgamento, pedidos de alugle recebidos.
 
-# Diagramas
-## Diagrama de Casos de Uso
-![Diagrama de Casos de Uso](./diagrama_de_caso_de_uso/diagrama_de_caso_de_uso.jpg)
+## Diagramas
+### Diagrama de Casos de Uso
+![Diagrama de Casos de Uso](./diagrama_de_casos_de_uso/diagrama_de_casos_de_uso.jpg)
 
-## Diagrama de Classes
+### Diagrama de Classes
 ![Diagrama de Classes](./diagrama_de_classes/diagrama_de_classes.jpg)
