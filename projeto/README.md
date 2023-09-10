@@ -19,3 +19,9 @@ O aluguel de um automóvel pode estar associado com um contrato de crédito, o q
 Em termos do sistema, o servidor central encontra-se ligado aos computadores locais dos clientes e aos diversos agentes aderentes através da Internet.
 
 O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e contratos; e outro para a construção dinâmica das páginas web.
+
+
+# Diagramas
+
+## Diagrama de Casos de Uso
+![Diagrama de Casos de Uso](./diagrama_de_caso_de_uso/diagrama_de_caso_de_uso.jpg)
