@@ -22,6 +22,8 @@ O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e
 
 
 # Diagramas
-
 ## Diagrama de Casos de Uso
 ![Diagrama de Casos de Uso](./diagrama_de_caso_de_uso/diagrama_de_caso_de_uso.jpg)
+
+## Diagrama de Classes
+![Diagrama de Classes](./diagrama_de_classes/diagrama_de_classes.jpg)
