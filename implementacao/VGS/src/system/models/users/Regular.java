@@ -1,7 +1,5 @@
 package system.models.users;
 
-import java.util.Scanner;
-
 import system.models.User;
 
 public class Regular extends User {
@@ -9,11 +7,22 @@ public class Regular extends User {
 	public Regular(String username, String password) {
 		super(username, password);
 	}
+	
+	private void gerenciarPedido() {
+		
+	}
 
 	@Override
-	public void showOptions() {
-		System.out.println("1- oi");
-		String s = new Scanner(System.in).nextLine();
+	public void actOnOption(int option) {
+		switch (option) {
+		case 1:
+			gerenciarPedido();
+			break;
+		}
 	}
 	
+	@Override
+	public void showMenu() {
+		System.out.println("1- Gerenciar Pedido");
+	}
 }

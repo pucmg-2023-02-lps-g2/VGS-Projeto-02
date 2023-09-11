@@ -3,7 +3,6 @@ package system.managers;
 import java.util.ArrayList;
 import java.util.List;
 
-import system.exceptions.UserNotFoundException;
 import system.models.User;
 
 public class UserManager {
