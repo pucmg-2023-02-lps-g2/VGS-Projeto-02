@@ -21,10 +21,6 @@ public abstract class User {
 		return this.password;
 	}
 	
-	public void logout() {
-		
-	}
-	
 	// Cuidado ao implementar esses metodos. "0" é a opção de logout
 	public abstract void actOnOption(int option);
 
