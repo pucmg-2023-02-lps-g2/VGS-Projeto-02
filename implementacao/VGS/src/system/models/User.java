@@ -1,6 +1,10 @@
 package system.models;
 
+import java.util.Scanner;
+
 public abstract class User {
+	
+	Scanner scanner = new Scanner(System.in);
 	
 	String username, password;
 	
@@ -17,15 +21,8 @@ public abstract class User {
 		return this.password;
 	}
 	
-	public abstract void showOptions();
+	// Cuidado ao implementar esses metodos. "0" é a opção de logout
+	public abstract void actOnOption(int option);
 
-	public void showMenu() {
-		// É estranho mas faz sentido. Todos os usuários fazem logout
-		// mas você precisa exibir pra eles opções diferentes de menu
-		
-		showOptions();
-		
-		System.out.println("0- Logout");
-	}
-	
+	public abstract void showMenu();
 }

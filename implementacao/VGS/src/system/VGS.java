@@ -9,6 +9,7 @@ import system.models.users.Regular;
 public class VGS {
 	
 	public User loggedUser;
+	private boolean executing = true;
 	Scanner scanner = new Scanner(System.in);
 	
 	private static VGS instance = new VGS();
@@ -20,16 +21,22 @@ public class VGS {
 	private VGS() {}
 	
 	public void start() {
-		while (true) {
+		while (executing) {
 			try {
 			System.out.println("Bem-vindo ao VGS!");
 			System.out.println("");
 			System.out.println("1- Cadastrar");
 			System.out.println("2- Logar");
+			System.out.println("");
+			System.out.println("0- Encerrar");
+			System.out.println("");
 			
 			int option = Integer.parseInt(scanner.nextLine());
-		
+			
 			switch (option) {
+				case 0:
+					endExecution();
+					break;
 				case 1:
 					registerMenu();
 					break;
@@ -45,6 +52,16 @@ public class VGS {
 				System.out.println("Opção Inválida");
 			}
 		}
+	}
+	
+	private void endExecution() {
+		executing = false;
+		
+		UserManager.getInstance().saveUsers();
+	}
+	
+	private void logout() {
+		this.loggedUser = null;
 	}
 	
 	private void loginMenu() {
@@ -74,11 +91,26 @@ public class VGS {
 	}
 	
 	public void userMenu() {
-		System.out.println("Bem-vindo " + this.loggedUser.getUsername() + "!");
+		while (this.loggedUser != null) {
+			System.out.println("Bem-vindo " + this.loggedUser.getUsername() + "!");
+			
+			System.out.println("O que deseja fazer? \n");
+			
+			loggedUser.showMenu();
+			
+			System.out.println("\n0- Logout \n");
+			
+			int option = Integer.parseInt(scanner.nextLine());
 		
-		System.out.println("O que deseja fazer? \n");
-		
-		this.loggedUser.showMenu();
+			switch (option) {
+			case 0:
+				logout();
+				break;
+			default:
+				this.loggedUser.actOnOption(option);
+				break;
+			}
+		}
 	}
 	
 	private void registerMenu() {
