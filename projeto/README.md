@@ -34,3 +34,9 @@ O sistema pode ser subdividido em dois subsistemas: um para gestão de pedidos e
 
 ### Diagrama de Classes
 ![Diagrama de Classes](./diagrama_de_classes/diagrama_de_classes.jpg)
+
+### Diagrama de Pacotes
+![Diagrama de Pacotes](./diagrama_de_pacotes/diagrama_de_pacotes_sistema.jpg)
+
+### Diagarma de Componentes
+![Diagrama de Componentes](./diagrama_de_componentes/diagrama_de_componentes.jpg)
