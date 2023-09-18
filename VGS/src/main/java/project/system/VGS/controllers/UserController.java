@@ -32,4 +32,11 @@ public class UserController {
         model.addAttribute("userList", userService.findAllUsers());
         return "userManagement";
     }
+
+    @PostMapping("/user/update")
+    public String updateUser(@RequestParam("cpfUpdate") String cpfUpdate, User user, Model model) {
+        userService.changeUserType(cpfUpdate);
+        model.addAttribute("userList", userService.findAllUsers());
+        return "userManagement";
+    }
 }

@@ -17,4 +17,5 @@ public class User {
     private String nome;
     private String rg;
     private String endereco;
+    private boolean agente;
 }
