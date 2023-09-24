@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Veículos</title>
+</head>
+<body>
+    <h1>Gerenciar Veículos</h1>
+
+    <h2>Veículos cadastrados:</h2>
+    <table>
+        <tr>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Preço por hora</th>
+            <th>Disponível</th>
+        </tr>
+        <tr th:each="u : ${vehicleList}">
+            <td th:text="${u.licensePlate}"></td>
+            <td th:text="${u.brand}"></td>
+            <td th:text="${u.model}"></td>
+            <td th:text="${u.year}"></td>
+            <td th:text="${u.pricePerHour}"></td>
+            <td th:text="${u.isAvaliable}"></td>
+        </tr>
+    </table>
+
+    <h2>Cadastrar veículo:</h2>
+
+    <form th:action="@{/vehicle}" th:object="${vehicle}" method="post">
+<!--        <p>Nome: <input type="text" th:field="*{licensePlate}"></p>-->
+<!--        <p>ID: <input type="text" th:field="*{brand}"></p>-->
+<!--        <p>RG: <input type="text" th:field="*{model}"></p>-->
+<!--        <p>Endereço: <input type="text" th:field="*{year}"></p>-->
+<!--        <p>Endereço: <input type="text" th:field="*{pricePerHour}"></p>-->
+<!--        <p>Agente? <input type="checkbox" th:field="*{isAvaliable}"></p>-->
+<!--        <input type="submit" value="Cadastrar">-->
+    </form>
+
+    <h2>Excluir veículo:</h2>
+
+    <form th:action="@{/vehicle/delete}" method="post">
+        <p>ID: <input type="text" name="idDelete"></p>
+        <input type="submit" value="Excluir">
+    </form>
+
+</body>
+</html>

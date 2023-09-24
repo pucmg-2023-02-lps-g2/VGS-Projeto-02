@@ -22,18 +22,18 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void deleteUser(String cpf) {
-        userRepository.deleteById(cpf);
+    public void deleteUser(String id) {
+        userRepository.deleteById(id);
     }
 
-    public void changeUserType(String cpf) {
-        User user = findUserByCpf(cpf);
+    public void changeUserType(String id) {
+        User user = findUserByCpf(id);
         user.setAgente(!user.isAgente());
         userRepository.save(user);
     }
 
-    public User findUserByCpf(String cpf) {
-        Optional<User> user = userRepository.findById(cpf);
+    public User findUserByCpf(String id) {
+        Optional<User> user = userRepository.findById(id);
         return user.orElse(null);
     }
 }
