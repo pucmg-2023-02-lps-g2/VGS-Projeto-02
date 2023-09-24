@@ -27,15 +27,15 @@ public class UserController {
     }
 
     @PostMapping("/user/delete")
-    public String deleteUser(@RequestParam("cpfDelete") String cpfDelete, User user, Model model) {
-        userService.deleteUser(cpfDelete);
+    public String deleteUser(@RequestParam("idDelete") String idDelete, User user, Model model) {
+        userService.deleteUser(idDelete);
         model.addAttribute("userList", userService.findAllUsers());
         return "userManagement";
     }
 
     @PostMapping("/user/update")
-    public String updateUser(@RequestParam("cpfUpdate") String cpfUpdate, User user, Model model) {
-        userService.changeUserType(cpfUpdate);
+    public String updateUser(@RequestParam("idUpdate") String idUpdate, User user, Model model) {
+        userService.changeUserType(idUpdate);
         model.addAttribute("userList", userService.findAllUsers());
         return "userManagement";
     }

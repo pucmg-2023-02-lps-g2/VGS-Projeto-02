@@ -10,14 +10,14 @@
     <h2>Usuários cadastrados:</h2>
     <table>
         <tr>
-            <th>CPF</th>
+            <th>ID</th>
             <th>Nome</th>
             <th>RG</th>
             <th>Endereco</th>
             <th>Agente</th>
         </tr>
         <tr th:each="u : ${userList}">
-            <td th:text="${u.cpf}"></td>
+            <td th:text="${u.id}"></td>
             <td th:text="${u.nome}"></td>
             <td th:text="${u.rg}"></td>
             <td th:text="${u.endereco}"></td>
@@ -29,7 +29,7 @@
 
     <form th:action="@{/user}" th:object="${user}" method="post">
         <p>Nome: <input type="text" th:field="*{nome}"></p>
-        <p>CPF: <input type="text" th:field="*{cpf}"></p>
+        <p>ID: <input type="text" th:field="*{id}"></p>
         <p>RG: <input type="text" th:field="*{rg}"></p>
         <p>Endereço: <input type="text" th:field="*{endereco}"></p>
         <p>Agente? <input type="checkbox" th:field="*{agente}"></p>
@@ -46,14 +46,14 @@
     <h2>Mudar tipo do usuário:</h2>
 
     <form th:action="@{/user/update}" method="post">
-        <p>CPF: <input type="text" name="cpfUpdate"></p>
+        <p>ID: <input type="text" name="idUpdate"></p>
         <input type="submit" value="Atualizar">
     </form>
 
     <h2>Excluir usuário:</h2>
 
     <form th:action="@{/user/delete}" method="post">
-        <p>CPF: <input type="text" name="cpfDelete"></p>
+        <p>ID: <input type="text" name="idDelete"></p>
         <input type="submit" value="Excluir">
     </form>
 

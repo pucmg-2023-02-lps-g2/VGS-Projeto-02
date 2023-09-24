@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private String cpf;
+    private String id;
     private String nome;
     private String rg;
     private String endereco;
