@@ -26,7 +26,7 @@ public class VehicleService {
         vehicleRepository.deleteById(id);
     }
 
-    public Vehicle findVehicleByCpf(String id) {
+    public Vehicle findVehicleById(String id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         return vehicle.orElse(null);
     }

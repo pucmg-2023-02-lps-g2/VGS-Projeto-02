@@ -36,8 +36,14 @@
 
     <h2>Cadastrar veículo:</h2>
 
+    <h2>Cadastrar usuário:</h2>
+
     <form th:action="@{/vehicle}" th:object="${vehicle}" method="post">
-        <p>License Plate: <input type="text" th:field="${vehicle.licensePlate}"></p>
+        <p>Placa: <input type="text" th:field="*{licensePlate}"></p>
+        <p>Marca: <input type="text" th:field="*{brand}"></p>
+        <p>Modelo: <input type="text" th:field="*{model}"></p>
+        <p>Ano: <input type="number" th:field="*{year}"></p>
+        <p>Preço por hora: <input type="number" step=".01" th:field="*{pricePerHour}"></p>
         <input type="submit" value="Cadastrar">
     </form>
 

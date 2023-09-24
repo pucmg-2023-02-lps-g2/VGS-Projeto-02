@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Pedidos</title>
+</head>
+<body>
+    <h1>Gerenciar Pedidos</h1>
+
+    <h2>Pedidos cadastrados:</h2>
+    <table>
+        <tr>
+            <th>Pedido</th>
+            <th>ID Solicitante</th>
+            <th>ID Veículo</th>
+            <th>Data de Início</th>
+            <th>Data de Término</th>
+            <th>Valor total</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="order : ${orderList}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.renterId}"></td>
+            <td th:text="${order.vehicleId}"></td>
+            <td th:text="${order.startDate}"></td>
+            <td th:text="${order.endDate}"></td>
+            <td th:text="${order.total}"></td>
+            <td>
+                <form th:action="@{/order/delete}" method="post">
+                    <input type="hidden" name="idDelete" th:value="${order.id}" />
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

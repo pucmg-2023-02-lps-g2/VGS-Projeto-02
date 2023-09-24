@@ -17,12 +17,12 @@
             <th>Agente</th>
             <th>Ações</th>
         </tr>
-        <tr th:each="u : ${userList}">
-            <td th:text="${u.id}"></td>
-            <td th:text="${u.nome}"></td>
-            <td th:text="${u.rg}"></td>
-            <td th:text="${u.endereco}"></td>
-            <td th:text="${u.agente}"></td>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.nome}"></td>
+            <td th:text="${user.rg}"></td>
+            <td th:text="${user.endereco}"></td>
+            <td th:text="${user.agente}"></td>
             <td>
                 <form th:action="@{/user/delete}" method="post">
                     <input type="hidden" name="idDelete" th:value="${user.id}" />
