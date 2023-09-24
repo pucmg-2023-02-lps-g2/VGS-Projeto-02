@@ -16,34 +16,29 @@
             <th>Ano</th>
             <th>Preço por hora</th>
             <th>Disponível</th>
+            <th>Ações</th>
         </tr>
-        <tr th:each="u : ${vehicleList}">
-            <td th:text="${u.licensePlate}"></td>
-            <td th:text="${u.brand}"></td>
-            <td th:text="${u.model}"></td>
-            <td th:text="${u.year}"></td>
-            <td th:text="${u.pricePerHour}"></td>
-            <td th:text="${u.isAvaliable}"></td>
+        <tr th:each="vehicle : ${vehicleList}">
+            <td th:text="${vehicle.licensePlate}"></td>
+            <td th:text="${vehicle.brand}"></td>
+            <td th:text="${vehicle.model}"></td>
+            <td th:text="${vehicle.year}"></td>
+            <td th:text="${vehicle.pricePerHour}"></td>
+            <td th:text="${vehicle.isAvaliable}"></td>
+            <td>
+                <form th:action="@{/vehicle/delete}" method="post">
+                    <input type="hidden" name="idDelete" th:value="${vehicle.licensePlate}" />
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
         </tr>
     </table>
 
     <h2>Cadastrar veículo:</h2>
 
     <form th:action="@{/vehicle}" th:object="${vehicle}" method="post">
-<!--        <p>Nome: <input type="text" th:field="*{licensePlate}"></p>-->
-<!--        <p>ID: <input type="text" th:field="*{brand}"></p>-->
-<!--        <p>RG: <input type="text" th:field="*{model}"></p>-->
-<!--        <p>Endereço: <input type="text" th:field="*{year}"></p>-->
-<!--        <p>Endereço: <input type="text" th:field="*{pricePerHour}"></p>-->
-<!--        <p>Agente? <input type="checkbox" th:field="*{isAvaliable}"></p>-->
-<!--        <input type="submit" value="Cadastrar">-->
-    </form>
-
-    <h2>Excluir veículo:</h2>
-
-    <form th:action="@{/vehicle/delete}" method="post">
-        <p>ID: <input type="text" name="idDelete"></p>
-        <input type="submit" value="Excluir">
+        <p>License Plate: <input type="text" th:field="${vehicle.licensePlate}"></p>
+        <input type="submit" value="Cadastrar">
     </form>
 
 </body>

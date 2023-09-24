@@ -15,6 +15,7 @@
             <th>RG</th>
             <th>Endereco</th>
             <th>Agente</th>
+            <th>Ações</th>
         </tr>
         <tr th:each="u : ${userList}">
             <td th:text="${u.id}"></td>
@@ -22,6 +23,12 @@
             <td th:text="${u.rg}"></td>
             <td th:text="${u.endereco}"></td>
             <td th:text="${u.agente}"></td>
+            <td>
+                <form th:action="@{/user/delete}" method="post">
+                    <input type="hidden" name="idDelete" th:value="${user.id}" />
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
         </tr>
     </table>
 
@@ -48,13 +55,6 @@
     <form th:action="@{/user/update}" method="post">
         <p>ID: <input type="text" name="idUpdate"></p>
         <input type="submit" value="Atualizar">
-    </form>
-
-    <h2>Excluir usuário:</h2>
-
-    <form th:action="@{/user/delete}" method="post">
-        <p>ID: <input type="text" name="idDelete"></p>
-        <input type="submit" value="Excluir">
     </form>
 
 </body>
