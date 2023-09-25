@@ -31,7 +31,6 @@ public class WebSecurityConfig {
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .successHandler(new CustomAuthenticationSuccessHandler(userRepository))
-//                        .defaultSuccessUrl("/homepage", true)
                         .permitAll()
                 )
                 .logout((logout) -> logout.permitAll());

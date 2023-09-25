@@ -14,6 +14,10 @@ import project.system.VGS.repository.UserRepository;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * Classe responsável por lidar com a autenticação conforme roles de usuário. Na classe User, os roles são definidos
+ * pela boolean "agente". Conforme seu role, o WebSecurityConfig direcionará o usuário para sua respectiva página
+ */
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -46,24 +50,22 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     }
 
     protected String determineTargetUrl(Authentication authentication) {
-        // Get the username (in your case it's the id)
         String username = authentication.getName();
 
-        // Fetch the user from the database
         Optional<User> userOptional = userRepository.findById(username);
 
         if (userOptional.isPresent()) {
             project.system.VGS.models.User user = userOptional.get();
 
-            // Check the isAgent attribute and return the appropriate URL
+            // Checa se o usuário possui o campo "isAgente" true
             if (user.isAgente()) {
-                return "/homepage";
+                return "/homepage"; // Se sim, direciona para homepage de agente
             } else {
-                return "/userpage";
+                return "/userpage"; // Se não, direciona para homepage de usuário
             }
         }
 
-        // Default redirect URL
+        // URL Default para que o método tenha return
         return "/";
     }
 
