@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>VGS | Home</title>
+</head>
+<body>
+    <nav>
+        <form action="/user" method="GET"><button type="submit">👥 Gerenciar usuários</button></form>
+        <form action="/vehicle" method="GET"><button type="submit">🚗 Gerenciar veículos</button></form>
+        <form action="/order" method="GET"><button type="submit">📄 Gerenciar pedidos</button></form>
+        <form th:action="@{/logout}" method="post"><input type="submit" value="Logout"/></form>
+    </nav>
+</body>
+</html>

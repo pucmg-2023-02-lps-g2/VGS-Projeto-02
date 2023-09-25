@@ -5,11 +5,19 @@
     <title>VGS</title>
 </head>
 <body>
-    <h1>Seja bem-vindo(a) ao VGS!</h1>
+    <div th:if="${param.error}">
+        Usuário ou senha inválidos.
+    </div>
 
-    <nav>
-        <form action="/user" method="GET"><button type="submit">Gerenciar usuários</button></form>
-        <form action="/vehicle" method="GET"><button type="submit">Gerenciar veículos</button></form>
-        <form action="/order" method="GET"><button type="submit">Gerenciar pedidos</button></form>
-    </nav>
+    <div th:if="${param.logout}">
+        Você foi deslogado.
+    </div>
+
+    <h1>Veículos Gerenciados por um Sistema</h1>
+    <h2>Login</h2>
+    <form th:action="@{/login}" method="post">
+        <div><label> ID: <input type="text" name="username"/> </label></div>
+        <div><label> Senha: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Entrar"/></div>
+    </form>
 </body>
