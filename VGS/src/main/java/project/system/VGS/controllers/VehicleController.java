@@ -24,6 +24,7 @@ public class VehicleController {
 
     @PostMapping("/vehicle")
     public String addVehicle(@ModelAttribute Vehicle vehicle, Model model) {
+        vehicle.setAvaliable(true);
         vehicleService.addVehicle(vehicle);
         model.addAttribute("vehicleList", vehicleService.findAllVehicles());
         return "vehicleManagement";

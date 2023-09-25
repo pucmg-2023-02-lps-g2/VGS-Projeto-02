@@ -17,7 +17,7 @@
             <th>Marca</th>
             <th>Modelo</th>
             <th>Ano</th>
-            <th>Preço por hora</th>
+            <th>Preço por dia</th>
             <th>Disponível</th>
             <th>Ações</th>
         </tr>
@@ -26,7 +26,7 @@
             <td th:text="${vehicle.brand}"></td>
             <td th:text="${vehicle.model}"></td>
             <td th:text="${vehicle.year}"></td>
-            <td th:text="${vehicle.pricePerHour}"></td>
+            <td th:text="${vehicle.pricePerDay}"></td>
             <td th:text="${vehicle.isAvaliable}"></td>
             <td>
                 <form th:action="@{/vehicle/delete}" method="post">
@@ -39,14 +39,12 @@
 
     <h2>Cadastrar veículo:</h2>
 
-    <h2>Cadastrar usuário:</h2>
-
     <form th:action="@{/vehicle}" th:object="${vehicle}" method="post">
         <p>Placa: <input type="text" th:field="*{licensePlate}"></p>
         <p>Marca: <input type="text" th:field="*{brand}"></p>
         <p>Modelo: <input type="text" th:field="*{model}"></p>
         <p>Ano: <input type="number" th:field="*{year}"></p>
-        <p>Preço por hora: <input type="number" step=".01" th:field="*{pricePerHour}"></p>
+        <p>Preço por dia: <input type="number" step=".01" th:field="*{pricePerDay}"></p>
         <input type="submit" value="Cadastrar">
     </form>
 

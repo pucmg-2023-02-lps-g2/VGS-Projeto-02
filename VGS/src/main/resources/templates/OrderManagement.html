@@ -8,6 +8,14 @@
 <body>
     <form action="/homepage" method="GET"><button type="submit">🏠</button></form>
 
+    <div th:if="${param.iderror}">
+        ID do cliente ou do veiculo não encontrado.
+    </div>
+
+    <div th:if="${param.vehiclenotavailable}">
+        O veiculo selecionado não está disponivel.
+    </div>
+
     <h1>Gerenciar pedidos</h1>
 
     <h2>Pedidos cadastrados:</h2>
@@ -35,6 +43,16 @@
                 </form>
             </td>
         </tr>
+
+        <h2>Cadastrar pedido:</h2>
+
+        <form th:action="@{/order}" th:object="${order}" method="post">
+            <p>ID do Solicitante: <input type="text" th:field="*{renterId}"></p>
+            <p>ID do Veiculo: <input type="text" th:field="*{vehicleId}"></p>
+            <p>Data Inicio: <input type="date" th:field="*{startDate}"></p>
+            <p>Data Termino: <input type="date" th:field="*{endDate}"></p>
+            <input type="submit" value="Cadastrar">
+        </form>
     </table>
 
 

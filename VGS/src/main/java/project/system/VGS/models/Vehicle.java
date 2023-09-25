@@ -19,6 +19,6 @@ public class Vehicle {
     private String brand;
     private String model;
     private int year;
-    private BigDecimal pricePerHour;
+    private BigDecimal pricePerDay;
     private boolean isAvaliable;
 }

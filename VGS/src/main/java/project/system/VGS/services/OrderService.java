@@ -26,8 +26,12 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
+    public Order findOrderById(String id) {
+        return orderRepository.findById(id).orElse(null);
+    }
+
     public Order findOrderByCpf(String id) {
-        Optional<Order> user = orderRepository.findById(id);
-        return user.orElse(null);
+        Optional<Order> order = orderRepository.findById(id);
+        return order.orElse(null);
     }
 }

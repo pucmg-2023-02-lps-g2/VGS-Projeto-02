@@ -26,6 +26,11 @@ public class VehicleService {
         vehicleRepository.deleteById(id);
     }
 
+    public void changeVehicleAvailability(Vehicle vehicle) {
+        vehicle.setAvaliable(!vehicle.isAvaliable());
+        vehicleRepository.save(vehicle);
+    }
+
     public Vehicle findVehicleById(String id) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
         return vehicle.orElse(null);
