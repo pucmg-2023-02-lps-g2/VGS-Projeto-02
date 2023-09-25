@@ -1,6 +1,8 @@
 package project.system.VGS.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,5 +40,13 @@ public class UserController {
         userService.changeUserType(idUpdate);
         model.addAttribute("userList", userService.findAllUsers());
         return "userManagement";
+    }
+
+    private String getUserIdFromAuthentication(Authentication authentication) {
+        // Extract the user ID from the authentication object (adjust this based on your authentication setup)
+        User userDetails = (User) authentication.getPrincipal();
+        // You may need to adapt this depending on how user details are stored
+        // For example, UserDetails could be a custom class that includes the user's ID
+        return userDetails.getId();
     }
 }

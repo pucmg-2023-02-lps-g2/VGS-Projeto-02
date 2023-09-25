@@ -38,6 +38,12 @@ public class OrderController {
         return "orderManagement";
     }
 
+    @GetMapping("/myorders")
+    public String myorder(Order order, Model model) {
+        model.addAttribute("orderList", orderService.findAllOrders());
+        return "orderManagement";
+    }
+
     @PostMapping("/order")
     public String addOrder(@ModelAttribute Order order, Model model, RedirectAttributes redirectAttributes) {
         if (userService.findUserByCpf(order.getRenterId()) == null || vehicleService.findVehicleById(order.getVehicleId()) == null) {
