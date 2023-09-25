@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>VGS | Home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
     <nav>
-        <form action="/user" method="GET"><button type="submit">👥 Gerenciar usuários</button></form>
-        <form action="/vehicle" method="GET"><button type="submit">🚗 Gerenciar veículos</button></form>
-        <form action="/order" method="GET"><button type="submit">📄 Gerenciar pedidos</button></form>
-        <form th:action="@{/logout}" method="post"><input type="submit" value="Logout"/></form>
+        <form action="/user" method="GET"><button type="submit" class="button">👥 Gerenciar usuários</button></form>
+        <form action="/vehicle" method="GET"><button type="submit" class="button">🚗 Gerenciar veículos</button></form>
+        <form action="/order" method="GET"><button type="submit" class="button">📄 Gerenciar pedidos</button></form>
+        <form th:action="@{/logout}" method="post"><input type="submit" value="Logout" class="button"/></form>
     </nav>
 </body>
 </html>
