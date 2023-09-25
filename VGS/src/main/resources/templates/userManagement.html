@@ -40,6 +40,7 @@
     <form th:action="@{/user}" th:object="${user}" method="post">
         <p>Nome: <input type="text" th:field="*{nome}"></p>
         <p>ID: <input type="text" th:field="*{id}"></p>
+        <p>Senha: <input type="text" th:field="*{password}"></p>
         <p>RG: <input type="text" th:field="*{rg}"></p>
         <p>Endereço: <input type="text" th:field="*{endereco}"></p>
         <p>Agente? <input type="checkbox" th:field="*{agente}"></p>
