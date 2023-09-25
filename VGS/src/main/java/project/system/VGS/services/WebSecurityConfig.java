@@ -18,7 +18,7 @@ import java.util.Optional;
 @EnableWebSecurity
 public class WebSecurityConfig {
     @Autowired
-    private UserRepository UserRepository;
+    private UserRepository userRepository;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -30,7 +30,8 @@ public class WebSecurityConfig {
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/homepage", true)
+                        .successHandler(new CustomAuthenticationSuccessHandler(userRepository))
+//                        .defaultSuccessUrl("/homepage", true)
                         .permitAll()
                 )
                 .logout((logout) -> logout.permitAll());
@@ -41,7 +42,7 @@ public class WebSecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> {
-            Optional<project.system.VGS.models.User> userOptional = UserRepository.findById(username);
+            Optional<project.system.VGS.models.User> userOptional = userRepository.findById(username);
             project.system.VGS.models.User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
             return User.withDefaultPasswordEncoder()
@@ -52,4 +53,8 @@ public class WebSecurityConfig {
         };
     }
 
+    @Bean
+    public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler() {
+        return new CustomAuthenticationSuccessHandler(userRepository);
+    }
 }
