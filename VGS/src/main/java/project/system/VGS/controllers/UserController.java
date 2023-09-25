@@ -41,12 +41,4 @@ public class UserController {
         model.addAttribute("userList", userService.findAllUsers());
         return "userManagement";
     }
-
-    private String getUserIdFromAuthentication(Authentication authentication) {
-        // Extract the user ID from the authentication object (adjust this based on your authentication setup)
-        User userDetails = (User) authentication.getPrincipal();
-        // You may need to adapt this depending on how user details are stored
-        // For example, UserDetails could be a custom class that includes the user's ID
-        return userDetails.getId();
-    }
 }

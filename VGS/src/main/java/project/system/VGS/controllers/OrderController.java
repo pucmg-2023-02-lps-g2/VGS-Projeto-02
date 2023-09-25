@@ -1,6 +1,8 @@
 package project.system.VGS.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.system.VGS.models.Order;
+import project.system.VGS.models.User;
 import project.system.VGS.models.Vehicle;
 import project.system.VGS.services.OrderService;
 import project.system.VGS.services.UserService;
@@ -18,6 +21,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -39,9 +43,13 @@ public class OrderController {
     }
 
     @GetMapping("/myorders")
-    public String myorder(Order order, Model model) {
-        model.addAttribute("orderList", orderService.findAllOrders());
-        return "orderManagement";
+    public String myorder(Order order, Model model, Authentication authentication) {
+        List<Order> orders = orderService.findOrdersById(authentication.getName());
+
+        System.out.println(orders);
+
+        model.addAttribute("orderList", orders);
+        return "myOrders";
     }
 
     @PostMapping("/order")

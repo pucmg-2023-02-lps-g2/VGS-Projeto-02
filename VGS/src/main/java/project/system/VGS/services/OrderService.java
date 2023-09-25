@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import project.system.VGS.models.Order;
 import project.system.VGS.repository.OrderRepository;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +30,17 @@ public class OrderService {
 
     public Order findOrderById(String id) {
         return orderRepository.findById(id).orElse(null);
+    }
+
+    public List<Order> findOrdersById(String renterId) {
+        List<Order> orders = orderRepository.findAll();
+        List<Order> finalList = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getRenterId().equals(renterId)) {
+                finalList.add(order);
+            }
+        }
+        return finalList;
     }
 
     public Order findOrderByCpf(String id) {
